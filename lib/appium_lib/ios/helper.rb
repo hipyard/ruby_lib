@@ -55,25 +55,25 @@ module Appium
         visible = (type.downcase.include?(class_name)).to_s if class_name
         if visible && visible == 'true'
           if name == label && name == value
-            puts "#{type}" if name || label || value || hint
-            puts "   name, label, value: #{name}" if name
-            puts "   hint: #{hint}" if hint
+            Appium::Logger.info "#{type}" if name || label || value || hint
+            Appium::Logger.info "   name, label, value: #{name}" if name
+            Appium::Logger.info "   hint: #{hint}" if hint
           elsif name == label
-            puts "#{type}" if name || label || value || hint
-            puts "   name, label: #{name}" if name
-            puts "   value: #{value}" if value
-            puts "   hint: #{hint}" if hint
+            Appium::Logger.info "#{type}" if name || label || value || hint
+            Appium::Logger.info "   name, label: #{name}" if name
+            Appium::Logger.info "   value: #{value}" if value
+            Appium::Logger.info "   hint: #{hint}" if hint
           elsif name == value
-            puts "#{type}" if name || label || value || hint
-            puts "   name, value: #{name}" if name
-            puts "  label: #{label}" if label
-            puts "   hint: #{hint}" if hint
+            Appium::Logger.info "#{type}" if name || label || value || hint
+            Appium::Logger.info "   name, value: #{name}" if name
+            Appium::Logger.info "  label: #{label}" if label
+            Appium::Logger.info "   hint: #{hint}" if hint
           else
-            puts "#{type}" if name || label || value || hint
-            puts "   name: #{name}" if name
-            puts "  label: #{label}" if label
-            puts "  value: #{value}" if value
-            puts "   hint: #{hint}" if hint
+            Appium::Logger.info "#{type}" if name || label || value || hint
+            Appium::Logger.info "   name: #{name}" if name
+            Appium::Logger.info "  label: #{label}" if label
+            Appium::Logger.info "  value: #{value}" if value
+            Appium::Logger.info "   hint: #{hint}" if hint
           end
 
           # there may be many ids with the same value.
@@ -98,7 +98,7 @@ module Appium
               arrow_space = ' ' * (max_len - key.length).to_i
               match_str   += ' ' * 7 + "#{key} #{arrow_space}=> #{value}\n"
             end
-            puts "   id: #{match_str.strip}\n"
+            Appium::Logger.info "   id: #{match_str.strip}\n"
           end
         end
       end

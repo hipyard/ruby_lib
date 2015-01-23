@@ -152,7 +152,7 @@ module Appium
     # @return [void]
     def page opts={}
       class_name = opts.is_a?(Hash) ? opts.fetch(:class, nil) : opts
-      puts get_android_inspect class_name
+      Appium::Logger.info get_android_inspect class_name
       nil
     end
 

@@ -108,7 +108,7 @@ module Appium
     # Count all classes on screen and print to stdout.
     # Useful for appium_console.
     def page_class
-      puts get_page_class
+      Appium::Logger.info get_page_class
       nil
     end
 
