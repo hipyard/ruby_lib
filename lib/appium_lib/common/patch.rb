@@ -105,12 +105,12 @@ def patch_webdriver_bridge
           # avoid backslash escape quotes in strings. "\"a\"" => "a"
           Appium::Logger.info print_command.ai.gsub('\"', '"')
         else
-          Appium::Logger.ap print_command
+          Appium::Logger.ap_info print_command
         end
       else # non-standard command hash
         # It's important to output this for debugging problems.
         # for example invalid JSON will not be a Hash
-        Appium::Logger.ap command_hash if command_hash
+        Appium::Logger.ap_info command_hash if command_hash
       end
       delay = $driver.global_webdriver_http_sleep
       sleep delay if !delay.nil? && delay > 0

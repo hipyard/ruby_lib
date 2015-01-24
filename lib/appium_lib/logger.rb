@@ -6,6 +6,10 @@ module Appium
       extend Forwardable
       def_delegators :logger, :ap, :fatal, :error, :warn, :info, :debug, :level, :level=, :formatter, :formatter=
 
+      [:fatal, :error, :warn, :info, :debug].each do |level|
+        define_method("ap_#{level}") {|obj| logger.ap(obj, level) }
+      end
+
     private
     
       def logger
